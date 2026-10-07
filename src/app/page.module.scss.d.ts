@@ -1,0 +1,9 @@
+export declare const actions: string
+export declare const actions__primary: string
+export declare const actions__secondary: string
+export declare const badge: string
+export declare const badge__dot: string
+export declare const description: string
+export declare const hero: string
+export declare const title: string
+export declare const title__gradient: string
