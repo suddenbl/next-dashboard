@@ -1,0 +1,38 @@
+﻿.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  position: relative;
+}
+
+.homeLink {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--foreground);
+  }
+
+  @media (max-width: 640px) {
+    position: static;
+    margin-bottom: 24px;
+    align-self: flex-start;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 440px;
+}

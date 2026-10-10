@@ -59,10 +59,18 @@
 
 .actions {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
   align-items: center;
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
   &__primary {
     padding: 14px 28px;
@@ -94,6 +102,18 @@
     &:hover {
       background: rgba(148, 163, 184, 0.1);
       border-color: rgba(148, 163, 184, 0.5);
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #2563eb;
+      text-decoration: underline;
     }
   }
 }

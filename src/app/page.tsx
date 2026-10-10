@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styles from './page.module.scss'
+import Link from 'next/link';
+import styles from './page.module.scss';
 
 export default function Home() {
   return (
@@ -22,13 +22,20 @@ export default function Home() {
       </p>
 
       <div className={styles.actions}>
-        <Link href="/auth/register" className={styles.actions__primary}>
-          Регистрация
-        </Link>
-        <Link href="/auth/login" className={styles.actions__secondary}>
-          Авторизация
+        <div className={styles.actions__wrapper}>
+          <Link href="/register" className={styles.actions__primary}>
+            Регистрация
+          </Link>
+
+          <Link href="/login" className={styles.actions__secondary}>
+            Авторизация
+          </Link>
+        </div>
+
+        <Link href="/dashboard" className={styles.actions__link}>
+          Перейти к дашбордам →
         </Link>
       </div>
     </main>
-  )
+  );
 }
