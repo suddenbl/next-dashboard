@@ -1,8 +1,9 @@
 ﻿import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { logoutAction } from '@/actions/auth';
-import styles from './layout.module.scss';
 import { getCurrentUser } from '@/lib/user';
+import { ThemeToggleButton } from '@/components';
+import styles from './layout.module.scss';
 
 export default async function DashboardLayout({
   children,
@@ -41,6 +42,8 @@ export default async function DashboardLayout({
           <div>
             <p>{user?.name || 'Не авторизован!'}</p>
           </div>
+
+          <ThemeToggleButton />
 
           <form action={logoutAction}>
             <button type="submit" className={styles.logoutButton}>

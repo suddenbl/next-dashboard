@@ -1,0 +1,18 @@
+import { ReactNode } from 'react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export default function ThemeProvider({ children }: ThemeProviderProps) {
+  return (
+    <NextThemesProvider
+      attribute="data-theme"
+      defaultTheme="system"
+      enableSystem
+    >
+      {children}
+    </NextThemesProvider>
+  );
+}

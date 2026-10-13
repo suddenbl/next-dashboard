@@ -13,7 +13,7 @@ export const config = {
   ],
 };
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const sessionCookie = request.cookies.get('session')?.value;
   const session = sessionCookie ? await verifySession(sessionCookie) : null;
 
