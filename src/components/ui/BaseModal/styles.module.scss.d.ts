@@ -1,0 +1,11 @@
+export declare const body: string;
+export declare const closeButton: string;
+export declare const fadeIn: string;
+export declare const header: string;
+export declare const lg: string;
+export declare const md: string;
+export declare const modal: string;
+export declare const overlay: string;
+export declare const scaleIn: string;
+export declare const sm: string;
+export declare const title: string;

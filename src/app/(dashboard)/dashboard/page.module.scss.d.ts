@@ -1,6 +1,6 @@
 export declare const container: string;
 export declare const placeholderCard: string;
-export declare const statCard: string;
+export declare const statContent: string;
 export declare const statLabel: string;
 export declare const statsGrid: string;
 export declare const statValue: string;

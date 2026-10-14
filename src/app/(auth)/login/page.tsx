@@ -1,9 +1,10 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import styles from '../auth.module.scss';
 import { useActionState } from 'react';
 import { loginAction } from '@/actions/auth';
+import { BaseButton, BaseInput } from '@/components/ui';
 
 export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(loginAction, null);
@@ -21,52 +22,42 @@ export default function LoginPage() {
       <form className={styles.form} action={formAction}>
         {state?.error && <p className={styles.errorBanner}>{state.error}</p>}
 
-        <div className={styles.field}>
-          <label htmlFor="email" className={styles.label}>
-            Email
-          </label>
-
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="name@example.com"
-            autoComplete="email"
-            required
-            defaultValue={state?.fields?.email}
-            className={styles.input}
-          />
-        </div>
+        <BaseInput
+          id="email"
+          name="email"
+          type="email"
+          label="Email"
+          placeholder="name@example.com"
+          autoComplete="email"
+          required
+          defaultValue={state?.fields?.email}
+        />
 
         <div className={styles.field}>
           <div className={styles.labelRow}>
-            <label htmlFor="password" className={styles.label}>
-              Пароль
-            </label>
-
+            <span className={styles.label}>Пароль</span>
             <Link href="#" className={styles.forgotLink}>
               Забыли пароль?
             </Link>
           </div>
 
-          <input
+          <BaseInput
             id="password"
             name="password"
             type="password"
             placeholder="••••••••"
             autoComplete="current-password"
             required
-            className={styles.input}
           />
         </div>
 
-        <button
+        <BaseButton
           type="submit"
+          isLoading={isPending}
           className={styles.submitButton}
-          disabled={isPending}
         >
           Войти
-        </button>
+        </BaseButton>
       </form>
 
       <div className={styles.footer}>

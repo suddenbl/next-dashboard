@@ -1,4 +1,4 @@
-﻿.container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -19,7 +19,7 @@
 
 .subtitle {
   font-size: 15px;
-  color: #64748b;
+  color: var(--muted);
 }
 
 .statsGrid {
@@ -28,21 +28,16 @@
   gap: 16px;
 }
 
-.statCard {
-  background: var(--background);
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 14px;
-  padding: 20px;
+.statContent {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .statLabel {
   font-size: 13px;
   font-weight: 500;
-  color: #64748b;
+  color: var(--muted);
 }
 
 .statValue {
@@ -52,16 +47,11 @@
 }
 
 .placeholderCard {
-  background: var(--background);
-  border: 1px dashed rgba(148, 163, 184, 0.3);
-  border-radius: 14px;
-  padding: 48px 24px;
   text-align: center;
-  color: #64748b;
+  color: var(--muted);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   font-size: 15px;
+  border-style: dashed;
 }

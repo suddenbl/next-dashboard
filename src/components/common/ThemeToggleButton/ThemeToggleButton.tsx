@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
+import { BaseButton } from '@/components/ui';
 import styles from './ThemeToggleButton.module.scss';
 
 const emptySubscribe = () => () => {};
@@ -22,12 +23,11 @@ export default function ThemeToggleButton() {
   const isDark = (resolvedTheme || theme) === 'dark';
 
   return (
-    <button
+    <BaseButton
       className={styles.button}
       aria-label="Сменить тему"
+      label={isDark ? '☀️' : '🌙'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-    >
-      {isDark ? '☀️' : '🌙'}
-    </button>
+    />
   );
 }

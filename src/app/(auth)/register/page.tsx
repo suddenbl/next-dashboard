@@ -1,9 +1,10 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import styles from '../auth.module.scss';
 import { useActionState } from 'react';
 import { registerAction } from '@/actions/auth';
+import { BaseButton, BaseInput } from '@/components/ui';
 
 export default function RegisterPage() {
   const [state, formAction, isPending] = useActionState(registerAction, null);
@@ -21,79 +22,55 @@ export default function RegisterPage() {
       <form action={formAction} className={styles.form}>
         {state?.error && <p className={styles.errorBanner}>{state.error}</p>}
 
-        <div className={styles.field}>
-          <label htmlFor="name" className={styles.label}>
-            Имя
-          </label>
+        <BaseInput
+          id="name"
+          name="name"
+          type="text"
+          label="Имя"
+          placeholder="Иван Иванов"
+          autoComplete="name"
+          required
+          defaultValue={state?.fields?.name}
+        />
 
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Иван Иванов"
-            autoComplete="name"
-            required
-            defaultValue={state?.fields?.name}
-            className={styles.input}
-          />
-        </div>
+        <BaseInput
+          id="email"
+          name="email"
+          type="email"
+          label="Email"
+          placeholder="name@example.com"
+          autoComplete="email"
+          required
+          defaultValue={state?.fields?.email}
+        />
 
-        <div className={styles.field}>
-          <label htmlFor="email" className={styles.label}>
-            Email
-          </label>
+        <BaseInput
+          id="password"
+          name="password"
+          type="password"
+          label="Пароль"
+          placeholder="Не менее 6 символов"
+          autoComplete="new-password"
+          required
+        />
 
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="name@example.com"
-            autoComplete="email"
-            required
-            defaultValue={state?.fields?.email}
-            className={styles.input}
-          />
-        </div>
+        <BaseInput
+          id="passwordConfirm"
+          name="passwordConfirm"
+          type="password"
+          label="Подтверждение пароля"
+          placeholder="Повторите пароль"
+          autoComplete="new-password"
+          required
+        />
 
-        <div className={styles.field}>
-          <label htmlFor="password" className={styles.label}>
-            Пароль
-          </label>
-
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Не менее 6 символов"
-            autoComplete="new-password"
-            required
-            className={styles.input}
-          />
-        </div>
-
-        <div className={styles.field}>
-          <label htmlFor="passwordConfirm" className={styles.label}>
-            Подтверждение пароля
-          </label>
-
-          <input
-            id="passwordConfirm"
-            name="passwordConfirm"
-            type="password"
-            placeholder="Повторите пароль"
-            autoComplete="new-password"
-            required
-            className={styles.input}
-          />
-        </div>
-
-        <button
+        <BaseButton
           type="submit"
+          isLoading={isPending}
           className={styles.submitButton}
-          disabled={isPending}
         >
           Зарегистрироваться
-        </button>
+        </BaseButton>
       </form>
 
       <div className={styles.footer}>

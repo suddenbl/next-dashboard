@@ -1,4 +1,5 @@
-﻿import styles from './page.module.scss';
+import styles from './page.module.scss';
+import { BaseCard } from '@/components/ui';
 
 export default function DashboardPage() {
   return (
@@ -11,23 +12,31 @@ export default function DashboardPage() {
       </div>
 
       <div className={styles.statsGrid}>
-        <div className={styles.statCard}>
-          <span className={styles.statLabel}>Общий баланс</span>
-          <span className={styles.statValue}>0 ₽</span>
-        </div>
-        <div className={styles.statCard}>
-          <span className={styles.statLabel}>Доходы за месяц</span>
-          <span className={styles.statValue}>0 ₽</span>
-        </div>
-        <div className={styles.statCard}>
-          <span className={styles.statLabel}>Расходы за месяц</span>
-          <span className={styles.statValue}>0 ₽</span>
-        </div>
+        <BaseCard padding="md">
+          <div className={styles.statContent}>
+            <span className={styles.statLabel}>Общий баланс</span>
+            <span className={styles.statValue}>0 ₽</span>
+          </div>
+        </BaseCard>
+
+        <BaseCard padding="md">
+          <div className={styles.statContent}>
+            <span className={styles.statLabel}>Доходы за месяц</span>
+            <span className={styles.statValue}>0 ₽</span>
+          </div>
+        </BaseCard>
+
+        <BaseCard padding="md">
+          <div className={styles.statContent}>
+            <span className={styles.statLabel}>Расходы за месяц</span>
+            <span className={styles.statValue}>0 ₽</span>
+          </div>
+        </BaseCard>
       </div>
 
-      <div className={styles.placeholderCard}>
+      <BaseCard padding="lg" className={styles.placeholderCard}>
         <p>📊 Здесь появятся ваши графики и последние операции</p>
-      </div>
+      </BaseCard>
     </div>
   );
 }

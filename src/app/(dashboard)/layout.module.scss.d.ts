@@ -1,0 +1,9 @@
+export declare const brand: string;
+export declare const brandDot: string;
+export declare const header: string;
+export declare const layout: string;
+export declare const logoutButton: string;
+export declare const main: string;
+export declare const nav: string;
+export declare const navLink: string;
+export declare const userActions: string;

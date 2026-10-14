@@ -1,0 +1,10 @@
+export declare const button: string;
+export declare const danger: string;
+export declare const ghost: string;
+export declare const lg: string;
+export declare const md: string;
+export declare const primary: string;
+export declare const secondary: string;
+export declare const sm: string;
+export declare const spin: string;
+export declare const spinner: string;
