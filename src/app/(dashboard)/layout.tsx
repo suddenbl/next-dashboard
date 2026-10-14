@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { logoutAction } from '@/actions/auth';
 import { getCurrentUser } from '@/lib/user';
-import { ThemeToggleButton } from '@/components';
+import { ThemeToggleButton } from '@/components/common';
 import styles from './layout.module.scss';
 
 export default async function DashboardLayout({

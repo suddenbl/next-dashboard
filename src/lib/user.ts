@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { verifySession } from './session';
 import { db } from './db';
-import { usersTable } from './db/schema';
+import { usersTable } from './db/schemas/users';
 import { eq } from 'drizzle-orm';
 
 export async function getCurrentUser() {

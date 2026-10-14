@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { compare, hash } from 'bcrypt-ts';
 import { eq } from 'drizzle-orm';
 import { db } from '@/lib/db';
-import { usersTable } from '@/lib/db/schema';
+import { usersTable } from '@/lib/db/schemas/users';
 import { createSession, deleteSession } from '@/lib/session';
 import { loginSchema, registerSchema } from '@/lib/validation/auth';
 
