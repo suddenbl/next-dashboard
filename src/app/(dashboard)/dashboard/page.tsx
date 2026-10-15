@@ -1,9 +1,14 @@
+import { Suspense } from 'react';
 import styles from './page.module.scss';
 import { BaseCard } from '@/components/ui';
+import { WelcomeToast } from './WelcomeToast';
 
 export default function DashboardPage() {
   return (
     <div className={styles.container}>
+      <Suspense fallback={null}>
+        <WelcomeToast />
+      </Suspense>
       <div className={styles.welcome}>
         <h1 className={styles.title}>Дашборд</h1>
         <p className={styles.subtitle}>

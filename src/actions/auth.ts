@@ -34,6 +34,10 @@ export async function registerAction(prevState: unknown, formData: FormData) {
     if (existingUser.length > 0) {
       return {
         error: 'Пользователь уже существует',
+        fields: {
+          name: rawData.name as string,
+          email: rawData.email as string,
+        },
       };
     }
 
@@ -57,10 +61,14 @@ export async function registerAction(prevState: unknown, formData: FormData) {
     console.error('Ошибка при регистрации:', e);
     return {
       error: 'Произошла ошибка при регистрации. Попробуйте еще раз.',
+      fields: {
+        name: rawData.name as string,
+        email: rawData.email as string,
+      },
     };
   }
 
-  redirect('/dashboard');
+  redirect('/dashboard?welcome=true');
 }
 
 export async function loginAction(prevState: unknown, formData: FormData) {
@@ -88,6 +96,9 @@ export async function loginAction(prevState: unknown, formData: FormData) {
     if (!user) {
       return {
         error: 'Неверный email или пароль',
+        fields: {
+          email: rawData.email as string,
+        },
       };
     }
 
@@ -95,6 +106,9 @@ export async function loginAction(prevState: unknown, formData: FormData) {
     if (!isPasswordValid) {
       return {
         error: 'Неверный email или пароль',
+        fields: {
+          email: rawData.email as string,
+        },
       };
     }
 
@@ -103,6 +117,9 @@ export async function loginAction(prevState: unknown, formData: FormData) {
     console.error('Ошибка при входе:', e);
     return {
       error: 'Произошла ошибка при входе. Попробуйте еще раз.',
+      fields: {
+        email: rawData.email as string,
+      },
     };
   }
 

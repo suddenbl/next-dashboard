@@ -1,13 +1,21 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '../auth.module.scss';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { loginAction } from '@/actions/auth';
 import { BaseButton, BaseInput } from '@/components/ui';
+import { useToast } from '@/providers';
+import styles from '../auth.module.scss';
 
 export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(loginAction, null);
+  const { error } = useToast();
+
+  useEffect(() => {
+    if (state?.error) {
+      error(state.error);
+    }
+  }, [state?.error, error]);
 
   return (
     <div className={styles.card}>
