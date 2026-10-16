@@ -4,10 +4,10 @@ import { categoriesTable } from './categories';
 
 export const budgetsTable = pgTable('budgets', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  userId: integer()
+  userId: integer('user_id')
     .notNull()
     .references(() => usersTable.id),
-  categoryId: integer()
+  categoryId: integer('category_id')
     .notNull()
     .references(() => categoriesTable.id),
   amount: integer().notNull(),

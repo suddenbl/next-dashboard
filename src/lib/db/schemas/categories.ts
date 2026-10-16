@@ -3,7 +3,7 @@ import { usersTable } from './users';
 
 export const categoriesTable = pgTable('categories', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  userId: integer()
+  userId: integer('user_id')
     .notNull()
     .references(() => usersTable.id),
   name: varchar({ length: 255 }).notNull(),

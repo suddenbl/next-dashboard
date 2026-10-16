@@ -5,13 +5,13 @@ import { categoriesTable } from './categories';
 
 export const transactionsTable = pgTable('transactions', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  userId: integer()
+  userId: integer('user_id')
     .notNull()
     .references(() => usersTable.id),
-  accountId: integer()
+  accountId: integer('account_id')
     .notNull()
     .references(() => accountsTable.id),
-  categoryId: integer()
+  categoryId: integer('category_id')
     .notNull()
     .references(() => categoriesTable.id),
   amount: integer().notNull(),
